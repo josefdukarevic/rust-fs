@@ -1,5 +1,4 @@
 -- Your SQL goes here
--- Your SQL goes here
 CREATE TABLE personal_info (
     id SERIAL PRIMARY KEY,
     full_name VARCHAR(255) NOT NULL,

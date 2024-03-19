@@ -14,7 +14,6 @@ diesel::table! {
         address -> Varchar,
         #[max_length = 255]
         profession -> Varchar,
-        #[max_length = 40]
-        birth_date -> Varchar,
+        birth_date -> Date,
     }
 }
