@@ -20,3 +20,10 @@ pub fn insert_personal_info(conn: &mut PgConnection, new_info: &PersonalInfo) ->
         .values(new_info)
         .get_result(conn)
 }
+
+pub fn get_personal_info(conn: &mut PgConnection) -> QueryResult<Vec<PersonalInfo>> {
+    use crate::schema::personal_info::dsl::*;
+
+    personal_info
+        .load::<PersonalInfo>(conn)
+}

@@ -5,7 +5,7 @@ use std::{env, io};
 use diesel::pg::PgConnection;
 use tokio::runtime::Runtime;
 
-use backend::routes::personal_info::submit_personal_info;
+use backend::routes::personal_info::{get_personal_info, submit_personal_info};
 
 pub type DbPool = r2d2::Pool<ConnectionManager<PgConnection>>;
 fn main() -> io::Result<()> {
@@ -23,6 +23,7 @@ fn main() -> io::Result<()> {
             App::new()
                 .app_data(Data::new(pool.clone()))
                 .service(submit_personal_info)
+                .service(get_personal_info)
                 
         })
         .bind("127.0.0.1:8090")?
